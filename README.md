@@ -1,1 +1,2 @@
 # odin-rock-paper-scissors
+A javascript game of rock, paper and scissors against computer. Done according to instructions from The Odin Project lesson at https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
