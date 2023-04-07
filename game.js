@@ -57,7 +57,7 @@ function singleRound(playerSelection, computerSelection) {
     }
     // If same choice, return draw message
     else {
-        return "Draw, play again!";
+        return 0;
     }
     // If win, return win message
     // If lose, return lose message
