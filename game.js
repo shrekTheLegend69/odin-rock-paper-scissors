@@ -66,13 +66,31 @@ function singleRound(playerSelection, computerSelection) {
 //Make a function game, that will play 5 round game of rock, paper and scissors and keeps the score and report winner or loser at the end
 function game()  {
     // Play single round game 5 times and keep a score inside
+    let playerScore = 0;
+    let computerScore = 0;
     for (i = 0; i < 5; i++) {
         // Get players input
-        const playerChoice = playerInput();
         // Call singleRound function with player's and computer's choices
-        singleRound(playerChoice, getComputerChoice())
+        const win = singleRound(playerInput(), getComputerChoice());
+        // Keep score up to date
+        if (win === true) {
+            playerScore += 1;
+        }
+        else if (win === false) {
+            computerScore += 1;
+        }
+        else {
+            console.log("Draw!");
+        }
         // Write score every round
+        console.log(`Current score: Player ${playerScore}:${computerScore} Computer`);
         // Write who won in the end
+    }
+    if (playerScore > computerScore) {
+        console.log(`Congrats, you won! Final score: ${playerScore}:${computerScore}`);
+    }
+    else {
+        console.log(`You lose! Maybe try again? Final score ${playerScore}:${computerScore}`);
     }
 }
 
