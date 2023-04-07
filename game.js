@@ -38,8 +38,27 @@ if ((playerSelection === "scissors" && computerSelection === "paper") || (player
     }
 }
 // Paper beats Rock
+else if ((playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "rock" && computerSelection === "paper")) {
+    if (playerSelection === "paper") {
+        return "Winner, winner, chicken dinner!";
+    }
+    else {
+        return "You lose, try again!";
+    }
+}
 // Rock beats scissors
+else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
+    if (playerSelection === "rock") {
+        return "Winner, winner, chicken dinner!";
+    }
+    else {
+        return "You lose, try again!";
+    }
+}
 // If same choice, return draw message
+else {
+    return "Draw, play again!";
+}
 // If win, return win message
 // If lose, return lose message
 }
