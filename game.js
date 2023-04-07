@@ -68,10 +68,28 @@ function game()  {
     // Play single round game 5 times and keep a score inside
     for (i = 0; i < 5; i++) {
         // Get players input
-        // Call singleRound function
+        const playerChoice = playerInput();
+        // Call singleRound function with player's and computer's choices
+        singleRound(playerChoice, getComputerChoice())
         // Write score every round
         // Write who won in the end
     }
 }
 
-
+// Gets players input
+function playerInput() {
+    // Get input from player, prompt again if input is invalid
+    while (true) {
+        let playerInput = prompt("Choose one: Rock, paper or scissors?!");
+        // Make input lowercase to avoid problems after
+        playerInput = playerInput.toLowerCase();
+        // If invalid input, ask user for input again
+        // If input is valid, return input
+        if (playerInput === "rock" || playerInput === "paper" || playerInput === "scissors") {
+            return playerInput;
+        }
+        else {
+            continue;
+        }
+    }
+}
