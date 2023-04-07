@@ -89,6 +89,9 @@ function game()  {
     if (playerScore > computerScore) {
         console.log(`Congrats, you won! Final score: ${playerScore}:${computerScore}`);
     }
+    else if (playerScore === computerScore) {
+        console.log(`Wow, it's a draw! Final score: ${playerScore}:${computerScore}`);
+    }
     else {
         console.log(`You lose! Maybe try again? Final score ${playerScore}:${computerScore}`);
     }
