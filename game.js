@@ -31,28 +31,28 @@ function singleRound(playerSelection, computerSelection) {
     // Scissors beats paper
     if ((playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors")) {
         if (playerSelection === "scissors") {
-            return "Winner, winner, chicken dinner!";
+            return true;
         }
         else {
-            return "You lose, try again!";
+            return false;
         }
     }
     // Paper beats Rock
     else if ((playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "rock" && computerSelection === "paper")) {
         if (playerSelection === "paper") {
-            return "Winner, winner, chicken dinner!";
+            return true;
         }
         else {
-            return "You lose, try again!";
+            return false;
         }
     }
     // Rock beats scissors
     else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
         if (playerSelection === "rock") {
-            return "Winner, winner, chicken dinner!";
+            return true;
         }
         else {
-            return "You lose, try again!";
+            return false;
         }
     }
     // If same choice, return draw message
