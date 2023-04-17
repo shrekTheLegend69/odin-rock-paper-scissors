@@ -63,54 +63,54 @@ function singleRound(playerSelection, computerSelection) {
     // If lose, return lose message
 }
 
-//Make a function game, that will play 5 round game of rock, paper and scissors and keeps the score and report winner or loser at the end
-function game()  {
-    // Play single round game 5 times and keep a score inside
-    let playerScore = 0;
-    let computerScore = 0;
-    for (i = 0; i < 5; i++) {
-        // Get players input
-        // Call singleRound function with player's and computer's choices
-        const win = singleRound(playerInput(), getComputerChoice());
-        // Keep score up to date
-        if (win === true) {
-            playerScore += 1;
-        }
-        else if (win === false) {
-            computerScore += 1;
-        }
-        else {
-            console.log("Draw!");
-        }
-        // Write score every round
-        console.log(`Current score: Player ${playerScore}:${computerScore} Computer`);
-        // Write who won in the end
+// Checks if someone won 5 rounds and displays an according messsage
+function checkWinner() {
+    if (playerScore === 5) {
+        score.textContent = `You won! Final score is ${playerScore}:${computerScore}!`;
+        playerScore = 0;
+        computerScore = 0;
     }
-    if (playerScore > computerScore) {
-        console.log(`Congrats, you won! Final score: ${playerScore}:${computerScore}`);
-    }
-    else if (playerScore === computerScore) {
-        console.log(`Wow, it's a draw! Final score: ${playerScore}:${computerScore}`);
-    }
-    else {
-        console.log(`You lose! Maybe try again? Final score ${playerScore}:${computerScore}`);
+    else if (computerScore === 5) {
+        score.textContent = `You lose! Final score is ${playerScore}:${computerScore}!`;
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
-// Gets players input
-function playerInput() {
-    // Get input from player, prompt again if input is invalid
-    while (true) {
-        let playerInput = prompt("Choose one: Rock, paper or scissors?!");
-        // Make input lowercase to avoid problems after
-        playerInput = playerInput.toLowerCase();
-        // If invalid input, ask user for input again
-        // If input is valid, return input
-        if (playerInput === "rock" || playerInput === "paper" || playerInput === "scissors") {
-            return playerInput;
-        }
-        else {
-            continue;
-        }
-    }
-}
+
+// Track score globally
+let computerScore = 0;
+let playerScore = 0;
+
+// Create p element to keep score inside
+const scoreDiv = document.querySelector('#score');
+const score = document.createElement('p');
+scoreDiv.appendChild(score);
+
+const rck = document.querySelector('#rock');
+rck.addEventListener('click', function(e) {
+    const victory = singleRound("rock", getComputerChoice());
+    if (victory === true) playerScore += 1;
+    else if (victory === false) computerScore += 1;
+    score.textContent = `Curent Score is Player ${playerScore}:${computerScore} Computer`;
+    checkWinner();
+});
+
+const ppr = document.querySelector('#paper');
+ppr.addEventListener('click', function(e) {
+    const victory = singleRound("paper", getComputerChoice());
+    if (victory === true) playerScore += 1;
+    else if (victory === false) computerScore += 1;
+    score.textContent = `Curent Score is Player ${playerScore}:${computerScore} Computer`;
+    checkWinner();
+});
+
+const scisrs = document.querySelector('#scissors');
+scisrs.addEventListener('click', function(e) {
+    const victory = singleRound("scissors", getComputerChoice());
+    if (victory === true) playerScore += 1;
+    else if (victory === false) computerScore += 1;
+    score.textContent = `Curent Score is Player ${playerScore}:${computerScore} Computer`;
+    checkWinner();
+});
+
